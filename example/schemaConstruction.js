@@ -1,4 +1,5 @@
 // @flow strict
+const v = require('superstruct');
 const s = require('../');
 
 const userSchema = s.idSchema('User', s.nameSchema('User', 'A person', s.objectSchema([
@@ -19,11 +20,14 @@ const attackSchema = s.unionSchema([
     ['type', s.stringLiteralSchema('melee weapon')]
   ]),
   s.objectSchema([
-    ['type', s.stringLiteralSchema('ranged spell')]
+    ['type', s.stringLiteralSchema('ranged spell')],
+    ['spell', s.string()]
   ]),
   s.objectSchema([
     ['type', s.stringLiteralSchema('melee spell')]
   ]),
 ]);
 
-console.log(JSON.stringify(s.toJSONSchemaDocument(userSchema)));
+const struct = s.createStruct(v, attackSchema);
+
+console.log(v.is({ type: 'ranged spell', spell: '1' }, struct));

@@ -9,7 +9,8 @@
   "author": "luke kaalim (luke@kaal.im)",
   "license": "MIT",
   "devDependencies": {
-    "flow-bin": "^0.133.0"
+    "flow-bin": "^0.133.0",
+    "superstruct": "^0.10.12"
   },
   "directories": {
     "example": "example"

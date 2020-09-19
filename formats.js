@@ -2,5 +2,5 @@
 module.exports = {
   ...require('./formats/jsonSchema'),
   ...require('./formats/flowLibrary'),
-  ...require('./formats/newSchema'),
+  ...require('./formats/superstruct'),
 };
