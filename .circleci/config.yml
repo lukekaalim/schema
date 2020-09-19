@@ -31,7 +31,7 @@ jobs:
       - run:
           name: Publish package
           command: |
-            npm publish -access=public -_authToken=$NPM_PUBLISH_TOKEN
+            npm publish --access public -_authToken=$NPM_PUBLISH_TOKEN
 workflows:
   version: 2
   commit:
