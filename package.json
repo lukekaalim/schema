@@ -1,6 +1,6 @@
 {
   "name": "@lukekaalim/schema",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "A generic schema-defining library that can export JSON schemas in multiple formats",
   "main": "main.js",
   "scripts": {
