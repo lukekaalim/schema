@@ -4,7 +4,8 @@
   "description": "A generic schema-defining library that can export JSON schemas in multiple formats",
   "main": "main.js",
   "scripts": {
-    "test": "node test"
+    "test": "node test",
+    "postversion": "git push origin --follow-tags"
   },
   "author": "luke kaalim (luke@kaal.im)",
   "license": "MIT",
