@@ -1,0 +1,50 @@
+# Javascript Node CircleCI 2.0 configuration file
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+version: 2
+jobs:
+  test:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:12
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - modules-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - modules-
+
+      - run: npm i
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: modules-{{ checksum "package.json" }}
+
+      - run: node test
+  deploy:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:12
+    steps:
+      - checkout
+      - run:
+          name: Publish package
+          command: |
+            npm publish -access=public -_authToken=$NPM_PUBLISH_TOKEN
+workflows:
+  version: 2
+  commit:
+    jobs:
+      - test:
+          filters:  # required since `deploy` has tag filters AND requires `test`
+            tags:
+              only: /.*/
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
