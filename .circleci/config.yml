@@ -41,6 +41,8 @@ workflows:
             tags:
               only: /.*/
       - deploy:
+          context:
+            - NPM
           requires:
             - test
           filters:
