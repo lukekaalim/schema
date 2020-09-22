@@ -15,6 +15,11 @@ type SuperStructLib = {
   union: (options: Struct[]) => Struct,
 };
 declare opaque type Struct;
+
+export type {
+  SuperStructLib,
+  Struct,
+};
 */
 
 const createStruct = (s/*: SuperStructLib*/, schema/*: Schema*/)/*: Struct*/ => {
