@@ -10,6 +10,7 @@
   "author": "luke kaalim (luke@kaal.im)",
   "license": "MIT",
   "devDependencies": {
+    "@lukekaalim/test": "^8.0.2",
     "flow-bin": "^0.133.0",
     "superstruct": "^0.10.12"
   },

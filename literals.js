@@ -62,5 +62,7 @@ module.exports = {
   literalSchema,
 
   literal: literalSchema,
+  lit: literalSchema,
   tuple: tupleSchema,
+  tup: tupleSchema,
 };
