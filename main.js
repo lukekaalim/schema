@@ -14,6 +14,7 @@ export type * from './primitives';
 export type * from './literals';
 export type * from './branches';
 export type * from './meta';
+export type * from './formats';
 
 export type {
   Schema
