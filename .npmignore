@@ -2,3 +2,4 @@ example
 .circleci
 .vscode
 *.test.js
+test.js
